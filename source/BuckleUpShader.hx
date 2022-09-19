@@ -7,6 +7,32 @@ import openfl.utils.Assets;
 import flixel.FlxG;
 import openfl.Lib;
 
+class Effect
+{
+	public function setValue(shader:FlxShader, variable:String, value:Float)
+	{
+		Reflect.setProperty(Reflect.getProperty(shader, 'variable'), 'value', [value]);
+	}
+}
+
+
+class BuckleUpEffect extends Effect
+{
+	public var shader:BuckleUpShader = new BuckleUpShader();
+
+	public function new()
+	{
+		shader.iTime.value = [0];
+		shader.iResolution.value = [Lib.current.stage.stageWidth, Lib.current.stage.stageHeight];
+	}
+
+	public function update(elapsed:Float)
+	{
+		shader.iTime.value[0] += elapsed;
+		shader.iResolution.value = [Lib.current.stage.stageWidth, Lib.current.stage.stageHeight];
+	}
+}
+
 class BuckleUpShader extends FlxShader
 {
   @:glFragmentSource('
