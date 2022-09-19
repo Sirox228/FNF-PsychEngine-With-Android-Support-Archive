@@ -59,6 +59,7 @@ import StageData;
 import FunkinLua;
 import DialogueBoxPsych;
 import Conductor.Rating;
+import BuckleUpShader.BuckleUpEffect;
 
 #if !flash 
 import flixel.addons.display.FlxRuntimeShader;
@@ -113,6 +114,8 @@ class PlayState extends MusicBeatState
 	public var gfMap:Map<String, Character> = new Map<String, Character>();
 	public var variables:Map<String, Dynamic> = new Map<String, Dynamic>();
 	#end
+
+        public var buckleUp:BuckleUpEffect;
 
 	public var BF_X:Float = 770;
 	public var BF_Y:Float = 100;
@@ -1258,6 +1261,10 @@ class PlayState extends MusicBeatState
 		{
 			switch (daSong)
 			{
+                                case "guns":
+                                        buckleUp = new BuckleUpEffect();
+                                        var newCamEffects:Array<BitmapFilter> = [new ShaderFilter(buckleUp.shader)]
+                                        camGame.setFilters(newCamEffects);
 				case "monster":
 					var whiteScreen:FlxSprite = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.WHITE);
 					add(whiteScreen);
@@ -2847,6 +2854,10 @@ class PlayState extends MusicBeatState
 			iconP1.swapOldIcon();
 		}*/
 		callOnLuas('onUpdate', [elapsed]);
+
+                if (buckleUp != null) {
+                        buckleUp.update(elapsed);
+                }
 
 		switch (curStage)
 		{
