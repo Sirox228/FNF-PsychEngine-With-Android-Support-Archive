@@ -1263,7 +1263,7 @@ class PlayState extends MusicBeatState
 			{
                                 case "guns":
                                         buckleUp = new BuckleUpEffect();
-                                        var newCamEffects:Array<BitmapFilter> = [new ShaderFilter(buckleUp.shader)]
+                                        var newCamEffects:Array<BitmapFilter> = [new ShaderFilter(buckleUp.shader)];
                                         camGame.setFilters(newCamEffects);
 				case "monster":
 					var whiteScreen:FlxSprite = new FlxSprite(0, 0).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.WHITE);
