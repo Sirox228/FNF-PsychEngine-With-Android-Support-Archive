@@ -59,7 +59,7 @@ import StageData;
 import FunkinLua;
 import DialogueBoxPsych;
 import Conductor.Rating;
-import BuckleUpShader.BuckleUpEffect;
+import BuckleUp.BuckleUpEffect;
 
 #if !flash 
 import flixel.addons.display.FlxRuntimeShader;
