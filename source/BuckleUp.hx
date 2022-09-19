@@ -22,14 +22,14 @@ class BuckleUpEffect extends Effect
 
 	public function new()
 	{
-		shader.iTime.value = [0];
-		shader.iResolution.value = [Lib.current.stage.stageWidth, Lib.current.stage.stageHeight];
+		shader.data.iTime.value = [0];
+		shader.data.iResolution.value = [Lib.current.stage.stageWidth, Lib.current.stage.stageHeight];
 	}
 
 	public function update(elapsed:Float)
 	{
-		shader.iTime.value[0] += elapsed;
-		shader.iResolution.value = [Lib.current.stage.stageWidth, Lib.current.stage.stageHeight];
+		shader.data.iTime.value[0] += elapsed;
+		shader.data.iResolution.value = [Lib.current.stage.stageWidth, Lib.current.stage.stageHeight];
 	}
 }
 
