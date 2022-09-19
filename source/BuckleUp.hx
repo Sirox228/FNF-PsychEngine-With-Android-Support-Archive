@@ -132,7 +132,7 @@ class BuckleUpShader extends FlxShader
             return (ta * ta + tb * tb + tc * tc) / 3.0;
         }
 
-        void main( out vec4 fragColor)
+        void main()
         {
 	        vec2 uv = openfl_TextureCoordv;
             uv = uv * 2.0 - 1.0;
